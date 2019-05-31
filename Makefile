@@ -1,7 +1,7 @@
 
 NAME = libfts.a
 
-FLAG = nasm -f macho64
+CC = nasm -f macho64
 
 SRC = ./src/ft_bzero.s\
 		./src/ft_cat.s\
@@ -37,7 +37,7 @@ $(NAME): $(OBJET)
 		ranlib $(NAME)
 
 %.o: %.s
-		~/.brew/bin/nasm -f macho64 $< -o $@
+		$(CC) $< -o $@
 clean:
 		/bin/rm -f $(OBJET)
 
